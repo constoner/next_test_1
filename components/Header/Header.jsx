@@ -1,8 +1,9 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import * as DATA_API from "../utils/DATA_API";
+
+import HeaderContent from "./HeadserContent";
+import * as DATA_API from "../../utils/DATA_API";
 
 const Header = () => {
   const pagesArray = Array.from(
@@ -26,24 +27,7 @@ const Header = () => {
   };
 
   return (
-    <header>
-      <a href={"/"}>Logo</a>
-      <nav>
-        <a href={"/"} onClick={(evt) => onButtonClick(evt, true)}>
-          {"<"}
-        </a>
-        <ul>
-          {pagesArray.map((item, index) => (
-            <li key={index}>
-              <Link href={`/list/${item}`}>{item}</Link>
-            </li>
-          ))}
-        </ul>
-        <a href={"/"} onClick={(evt) => onButtonClick(evt, false)}>
-          {">"}
-        </a>
-      </nav>
-    </header>
+    <HeaderContent pagesArray={pagesArray} onButtonClick={onButtonClick} />
   );
 };
 

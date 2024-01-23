@@ -18,10 +18,14 @@ const Page = async ({ params }) => {
   const data = await getData(params.listNumber);
   return (
     <>
-      <h1>Hello, Next.js! {params.listNumber}</h1>
-      <ul>
+      <h1 className="h2 mb-5 fw-bold">
+        Список элементов. Страница {params.listNumber}
+      </h1>
+      <ul className="list-group">
         {data.items.map((item) => (
-          <li key={item.id}>{item.name}</li>
+          <li className="list-group-item w-50" key={item.id}>
+            {item.name}
+          </li>
         ))}
       </ul>
     </>
