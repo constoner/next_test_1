@@ -16,7 +16,11 @@
 
 - next 14.1.0
 - react 18.2.0
+- bootstrap 5.3.2
 - vercel for deploy
-- bootstrap
 
 ## Исползование
+
+- запуск dev-сервера: `npm run dev`
+- создание билда: `npm run dev`
+- старт prod-сервера: `npm run start`
