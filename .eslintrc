@@ -1,0 +1,12 @@
+{
+  "extends": "react-app",
+  "overrides": [
+    {
+      "files": ["src/vendor/**/*"],
+      "rules": {
+        "no-unused-vars": "off",
+        "no-unused-expressions": "off"
+      }
+    }
+  ]
+}
