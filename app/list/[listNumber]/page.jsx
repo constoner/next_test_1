@@ -28,6 +28,7 @@ const Page = async ({ params }) => {
         {data?.items.map((item) => (
           <li className="list-group-item w-50" key={item.id}>
             <Link href={`/item/${item.id}`}>{item.name}</Link>
+            {/* <Link href={`/item`}>{item.name}</Link> */}
           </li>
         ))}
       </ul>

@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.css";
 
 import Header from "../components/Header/Header";
 
-export default function RootLayout({ children, container }) {
+export default function RootLayout({ children, modal }) {
   return (
     <html lang="ru">
       <head>
@@ -10,12 +10,13 @@ export default function RootLayout({ children, container }) {
         <meta name="description" content="Next.js test 1"></meta>
         <title>Next.js test 1</title>
       </head>
-      <body className="vh-100">
+      <body className="vh-100 position-relative">
         <Header />
         <div className="container bg-light h-75 p-3 pt-5">
           <main>
-            <div>{children}</div>
-            <div>{container}</div>
+            {children}
+            {modal}
+            <div id="modal-portal"></div>
           </main>
         </div>
       </body>

@@ -8,7 +8,7 @@ import * as DATA_API from "../../utils/DATA_API";
 const Header = () => {
   const pagesArray = Array.from(
     { length: DATA_API.PAGES_NUMBER },
-    (item, index) => index + 1
+    (_, index) => index + 1
   );
   const [page, setPage] = useState(1);
   const route = useRouter();
@@ -16,7 +16,6 @@ const Header = () => {
   const params = useParams();
 
   useEffect(() => {
-    console.log("page:", page);
     route.push(`/list/${page}`);
   }, [page]);
 
@@ -24,7 +23,6 @@ const Header = () => {
     if (Object.getOwnPropertyNames(params).length !== 0) {
       setPage(Number(params.listNumber));
     }
-    console.log("params:", params);
   }, [params]);
 
   const onButtonClick = (evt, back = false) => {
