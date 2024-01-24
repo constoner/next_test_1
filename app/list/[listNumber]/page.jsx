@@ -7,9 +7,8 @@ const Page = async ({ params }) => {
 
   return (
     <>
-      <h1 className="h2 mb-4 fw-bold">
-        Список элементов. Страница {listNumber}
-      </h1>
+      <h1 className="h3 mb-2 fw-bold">Список элементов</h1>
+      <p className="fs-5 mb-4 fw-semibold"> Страница {listNumber}</p>
       <ul className="list-group">
         {data?.items.map((item) => (
           <li className="list-group-item w-50" key={item.id}>

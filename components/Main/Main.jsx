@@ -5,6 +5,7 @@ const Main = ({ children }) => {
     <div className="container flex-grow-1 bg-light p-4 pt-5 shadow-lg">
       <main>
         <div className="mb-4">
+          <p className="fs-6 mb-2">Навигация по страницам</p>
           <Navigation />
         </div>
         {children}
