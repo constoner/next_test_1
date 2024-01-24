@@ -1,5 +1,5 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import HeaderContent from "./HeadserContent";
@@ -13,9 +13,15 @@ const Header = () => {
   const [page, setPage] = useState(1);
   const route = useRouter();
 
+  const params = useParams();
+
   useEffect(() => {
     route.push(`/list/${page}`);
   }, [page]);
+
+  useEffect(() => {
+    setPage(Number(params.listNumber));
+  }, [params]);
 
   const onButtonClick = (evt, back = false) => {
     evt.preventDefault();
