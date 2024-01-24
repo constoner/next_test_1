@@ -16,7 +16,6 @@ export default function RootLayout({ children, modal }) {
           <main>
             {children}
             {modal}
-            <div id="modal-portal"></div>
           </main>
         </div>
       </body>

@@ -1,4 +1,4 @@
-import Modal from "../../../../components/Modal/Modal";
+import Modal from "../../../../../components/Modal/Modal";
 
 const ModalItem = ({ params }) => {
   return <Modal params={params} />;

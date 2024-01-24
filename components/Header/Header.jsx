@@ -1,6 +1,6 @@
 "use client";
 import { useParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import HeaderContent from "./HeadserContent";
 import * as DATA_API from "../../utils/DATA_API";
@@ -12,11 +12,15 @@ const Header = () => {
   );
   const [page, setPage] = useState(1);
   const route = useRouter();
-
+  const firstRenderRef = useRef(false);
   const params = useParams();
 
   useEffect(() => {
-    route.push(`/list/${page}`);
+    if (firstRenderRef.current) {
+      route.push(`/list/${page}`);
+    } else {
+      firstRenderRef.current = true;
+    }
   }, [page]);
 
   useEffect(() => {

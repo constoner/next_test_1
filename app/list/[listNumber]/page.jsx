@@ -27,8 +27,12 @@ const Page = async ({ params }) => {
       <ul className="list-group">
         {data?.items.map((item) => (
           <li className="list-group-item w-50" key={item.id}>
-            <Link href={`/item/${item.id}`}>{item.name}</Link>
-            {/* <Link href={`/item`}>{item.name}</Link> */}
+            <Link
+              className="mb-2 fs-6 text-decoration-none text-dark"
+              href={`/item/${item.id}`}
+            >
+              {item.name}
+            </Link>
           </li>
         ))}
       </ul>
