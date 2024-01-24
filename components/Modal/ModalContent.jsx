@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
 
-const ModalConent = ({ children }) => {
+const ModalConent = ({ title, content }) => {
   const route = useRouter();
   const backdropRef = useRef();
 
@@ -22,8 +22,12 @@ const ModalConent = ({ children }) => {
         ref={backdropRef}
         onClick={closeModal}
       ></div>
-      <div className="position-absolute top-50 start-50 w-50 h-50 p-5 translate-middle bg-light opacity-100 card">
-        <div>{children}</div>
+      <div
+        className="position-absolute top-50 start-50 translate-middle bg-light opacity-100 card"
+        style={{ maxWidth: "200%", width: "max-content", minWidth: "33%" }}
+      >
+        <h2 className="card-header h-25 h2 p-5 fw-bold text-center">{title}</h2>
+        <p className="card-body p-5 fs-5 text-body">{content}</p>
         <button
           className="btn btn-secondary d-flex justify-content-center position-absolute top-0 end-0 p-1 m-3"
           type="button"

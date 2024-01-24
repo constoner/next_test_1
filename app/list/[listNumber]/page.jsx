@@ -1,23 +1,9 @@
 import Link from "next/link";
-import * as DATA_API from "../../../utils/DATA_API";
-
-const getData = async (listNumber) => {
-  return fetch(`${DATA_API.MAIN_PATH}${DATA_API.LIST_PATH}${listNumber}`, {
-    cache: "no-store",
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
-      } else {
-        return response;
-      }
-    })
-    .then((response) => response.json());
-};
+import { getList } from "../../../utils/utils";
 
 const Page = async ({ params }) => {
   const { listNumber } = params;
-  const data = await getData(listNumber);
+  const data = await getList(listNumber);
 
   return (
     <>
