@@ -21,14 +21,14 @@ const Page = async ({ params }) => {
 
   return (
     <>
-      <h1 className="h2 mb-5 fw-bold">
+      <h1 className="h2 mb-4 fw-bold">
         Список элементов. Страница {listNumber}
       </h1>
       <ul className="list-group">
         {data?.items.map((item) => (
           <li className="list-group-item w-50" key={item.id}>
             <Link
-              className="mb-2 fs-6 text-decoration-none text-dark"
+              className="mb-2 p-1 fs-6 text-decoration-none text-dark"
               href={`/item/${item.id}`}
             >
               {item.name}
