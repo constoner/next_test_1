@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.css";
 
 import Header from "../components/Header/Header";
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, container }) {
   return (
     <html lang="ru">
       <head>
@@ -13,7 +13,10 @@ export default function RootLayout({ children }) {
       <body className="vh-100">
         <Header />
         <div className="container bg-light h-75 p-3 pt-5">
-          <main>{children}</main>
+          <main>
+            <div>{children}</div>
+            <div>{container}</div>
+          </main>
         </div>
       </body>
     </html>

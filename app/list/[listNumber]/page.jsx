@@ -1,3 +1,4 @@
+import Link from "next/link";
 import * as DATA_API from "../../../utils/DATA_API";
 
 const getData = async (listNumber) => {
@@ -15,16 +16,18 @@ const getData = async (listNumber) => {
 };
 
 const Page = async ({ params }) => {
-  const data = await getData(params.listNumber);
+  const { listNumber } = params;
+  const data = await getData(listNumber);
+
   return (
     <>
       <h1 className="h2 mb-5 fw-bold">
-        Список элементов. Страница {params.listNumber}
+        Список элементов. Страница {listNumber}
       </h1>
       <ul className="list-group">
-        {data.items.map((item) => (
+        {data?.items.map((item) => (
           <li className="list-group-item w-50" key={item.id}>
-            {item.name}
+            <Link href={`/item/${item.id}`}>{item.name}</Link>
           </li>
         ))}
       </ul>

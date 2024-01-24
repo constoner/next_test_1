@@ -16,11 +16,15 @@ const Header = () => {
   const params = useParams();
 
   useEffect(() => {
+    console.log("page:", page);
     route.push(`/list/${page}`);
   }, [page]);
 
   useEffect(() => {
-    setPage(Number(params.listNumber));
+    if (Object.getOwnPropertyNames(params).length !== 0) {
+      setPage(Number(params.listNumber));
+    }
+    console.log("params:", params);
   }, [params]);
 
   const onButtonClick = (evt, back = false) => {
