@@ -14,7 +14,7 @@
 
 ## Стэк
 
-- javascript
+- typescript
 - next 14.1.0
 - react 18.2.0
 - bootstrap 5.3.2
