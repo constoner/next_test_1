@@ -3,9 +3,14 @@
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
 
-const ModalContent = ({ title, content }) => {
+interface modalInterface {
+  title: string;
+  content: string;
+}
+
+const ModalContent = ({ title, content }: modalInterface) => {
   const route = useRouter();
-  const backdropRef = useRef();
+  const backdropRef = useRef(null);
 
   const closeModal = () => {
     if (window.history.length > 2) {

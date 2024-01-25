@@ -1,11 +1,21 @@
 import Link from "next/link";
 
+interface navigationInterface {
+  pagesArray: any[];
+  onButtonClick: (
+    evt: React.FormEvent<HTMLAnchorElement>,
+    back: boolean
+  ) => void;
+  disableButton: (lastButton: boolean) => string;
+  current: { listNumber: string };
+}
+
 const NavigationContent = ({
   pagesArray,
   onButtonClick,
   disableButton,
   current,
-}) => {
+}: navigationInterface) => {
   return (
     <nav className="d-flex">
       <ul className="list-group list-group-horizontal">

@@ -6,14 +6,14 @@ import NavigationContent from "./NavigationContent";
 import * as DATA_API from "../../utils/DATA_API";
 
 const Navigation = () => {
-  const pagesArray = Array.from(
+  const pagesArray: number[] = Array.from(
     { length: DATA_API.PAGES_NUMBER },
     (_, index) => index + 1
   );
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState<number>(1);
   const route = useRouter();
   const firstRenderRef = useRef(false);
-  const params = useParams();
+  const params: { listNumber: string } = useParams();
 
   useEffect(() => {
     if (firstRenderRef.current) {
@@ -29,7 +29,10 @@ const Navigation = () => {
     }
   }, [params]);
 
-  const onButtonClick = (evt, back = false) => {
+  const onButtonClick = (
+    evt: React.FormEvent<HTMLAnchorElement>,
+    back: boolean = false
+  ) => {
     evt.preventDefault();
     if (!back && page < DATA_API.PAGES_NUMBER) {
       setPage((prev) => prev + 1);
@@ -44,7 +47,7 @@ const Navigation = () => {
       "text-decoration-none d-flex align-items-center p-2 text-body-tertiary pe-none",
   };
 
-  const disableButton = (lastButton = false) => {
+  const disableButton = (lastButton: boolean = false) => {
     const page = lastButton ? DATA_API.PAGES_NUMBER : DATA_API.START_PAGE;
 
     return Number(params.listNumber) === page
