@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
 
-const ModalConent = ({ title, content }) => {
+const ModalContent = ({ title, content }) => {
   const route = useRouter();
   const backdropRef = useRef();
 
@@ -49,4 +49,4 @@ const ModalConent = ({ title, content }) => {
   );
 };
 
-export default ModalConent;
+export default ModalContent;
