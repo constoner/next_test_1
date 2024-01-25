@@ -1,5 +1,4 @@
 import Logo from "../Logo/Logo";
-import Contacts from "../Contacts/Contacts";
 
 const Header = () => {
   return (

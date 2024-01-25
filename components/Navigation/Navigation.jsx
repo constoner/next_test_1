@@ -38,8 +38,27 @@ const Navigation = () => {
     }
   };
 
+  const classNames = {
+    enabled: "text-decoration-none d-flex align-items-center p-2 text-dark",
+    disabled:
+      "text-decoration-none d-flex align-items-center p-2 text-body-tertiary pe-none",
+  };
+
+  const disableButton = (lastButton = false) => {
+    const page = lastButton ? DATA_API.PAGES_NUMBER : DATA_API.START_PAGE;
+
+    return Number(params.listNumber) === page
+      ? classNames.disabled
+      : classNames.enabled;
+  };
+
   return (
-    <NavigationContent pagesArray={pagesArray} onButtonClick={onButtonClick} />
+    <NavigationContent
+      pagesArray={pagesArray}
+      onButtonClick={onButtonClick}
+      disableButton={disableButton}
+      current={params}
+    />
   );
 };
 

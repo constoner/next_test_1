@@ -2,11 +2,11 @@ const Contacts = () => {
   return (
     <div className="d-flex flex-wrap justify-content-end align-items-end fw-semibold flex-shrink-1 w-75">
       <p className="m-0 ms-4 p-1 fs-6 fw-normal text-decoration-none text-dark text-end">
-        Калинин Константин 2024
+        Калинин Константин. 2024
       </p>
       <a
         className="ms-4 p-1 fs-6 text-decoration-none text-dark"
-        href="https://github.com/constoner"
+        href="https://github.com/constoner/next_test_1"
         target="_blank"
       >
         <svg

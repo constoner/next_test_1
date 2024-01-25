@@ -1,23 +1,25 @@
 import Link from "next/link";
-import { useParams } from "next/navigation";
 
-const NavigationContent = ({ pagesArray, onButtonClick }) => {
-  const current = useParams();
-
+const NavigationContent = ({
+  pagesArray,
+  onButtonClick,
+  disableButton,
+  current,
+}) => {
   return (
     <nav className="d-flex">
       <ul className="list-group list-group-horizontal">
         <li className="list-group-item d-flex align-items-center p-0">
           <a
-            className="text-decoration-none d-flex align-items-center p-2 text-dark"
+            className={disableButton(false)}
             href={"/"}
             onClick={(evt) => onButtonClick(evt, true)}
             aria-label="Назад"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
+              width="18"
+              height="18"
               fill="currentColor"
               className="bi bi-arrow-left"
               viewBox="0 0 16 16"
@@ -34,7 +36,7 @@ const NavigationContent = ({ pagesArray, onButtonClick }) => {
             <Link
               className={
                 item.toString() === current.listNumber
-                  ? "text-decoration-none p-2 text-dark fw-bold"
+                  ? "text-decoration-none p-2 text-dark fw-bold pe-none"
                   : "text-decoration-none p-2 text-dark"
               }
               href={`/list/${item}`}
@@ -45,15 +47,15 @@ const NavigationContent = ({ pagesArray, onButtonClick }) => {
         ))}
         <li className="list-group-item d-flex align-items-center p-0">
           <a
-            className="text-decoration-none d-flex align-items-center p-2 text-dark"
+            className={disableButton(true)}
             href={"/"}
             onClick={(evt) => onButtonClick(evt, false)}
             aria-label="Вперёд"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
+              width="18"
+              height="18"
               fill="currentColor"
               className="bi bi-arrow-right"
               viewBox="0 0 16 16"
