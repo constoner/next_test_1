@@ -8,7 +8,7 @@ const DataListContent = ({ data }: { data: itemInterface[] }) => {
       {data.map((item: itemInterface) => (
         <li className="list-group-item w-100" key={item.id}>
           <Link
-            className="mb-2 p-1 fs-6 text-decoration-none text-dark"
+            className="mb-2 p-1 fs-6 text-decoration-none link-dark link-opacity-75-hover"
             href={`/item/${item.id}`}
           >
             {item.name}

@@ -5,7 +5,7 @@ const Contacts = () => {
         Калинин Константин. 2024
       </p>
       <a
-        className="ms-4 p-1 fs-6 text-decoration-none text-dark"
+        className="ms-4 p-1 fs-6 text-decoration-none link-dark link-opacity-50-hover focus-ring focus-ring-secondary"
         href="https://github.com/constoner/next_test_1"
         target="_blank"
       >
@@ -22,7 +22,7 @@ const Contacts = () => {
         GitHub
       </a>
       <a
-        className="ms-4 p-1 fs-6 text-decoration-none text-dark"
+        className="ms-4 p-1 fs-6 text-decoration-none link-dark link-opacity-50-hover focus-ring focus-ring-secondary"
         href="https://t.me/constoner"
         target="_blank"
       >
@@ -39,7 +39,7 @@ const Contacts = () => {
         Telegram
       </a>
       <a
-        className="ms-4 p-1 fs-6 text-decoration-none text-dark"
+        className="ms-4 p-1 fs-6 text-decoration-none link-dark link-opacity-50-hover focus-ring focus-ring-secondary"
         href="tel:+79313482382"
       >
         <svg
@@ -58,7 +58,7 @@ const Contacts = () => {
         Phone
       </a>
       <a
-        className="ms-4 p-1 fs-6 text-decoration-none text-dark"
+        className="ms-4 p-1 fs-6 text-decoration-none link-dark link-opacity-50-hover focus-ring focus-ring-secondary"
         href="mailto:constantin.kalinin@gmail.com"
       >
         <svg

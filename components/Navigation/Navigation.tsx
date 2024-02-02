@@ -42,7 +42,8 @@ const Navigation = () => {
   };
 
   const classNames = {
-    enabled: "text-decoration-none d-flex align-items-center p-2 text-dark",
+    enabled:
+      "text-decoration-none d-flex align-items-center p-2 link-dark link-opacity-50-hover focus-ring focus-ring-secondary",
     disabled:
       "text-decoration-none d-flex align-items-center p-2 text-body-tertiary pe-none",
   };
