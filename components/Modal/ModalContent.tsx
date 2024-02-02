@@ -1,38 +1,38 @@
-"use client";
+import Loader from "../Loader/Loader";
 
-import { useRef } from "react";
-import { useRouter } from "next/navigation";
+import { modalInterface } from "./types";
 
-interface modalInterface {
-  title: string;
-  content: string;
-}
-
-const ModalContent = ({ title, content }: modalInterface) => {
-  const route = useRouter();
-  const backdropRef = useRef(null);
-
-  const closeModal = () => {
-    if (window.history.length > 2) {
-      route.back();
-    } else {
-      route.push("/list/1");
-    }
-  };
-
+const ModalContent = ({
+  title,
+  content,
+  closeModal,
+  loading,
+}: modalInterface) => {
   return (
     <div>
       <div
-        className="position-absolute top-0 bottom-0 start-0 end-0 bg-black opacity-75"
-        ref={backdropRef}
+        className="backdrop position-absolute top-0 bottom-0 start-0 end-0 bg-black opacity-75"
         onClick={closeModal}
       ></div>
       <div
-        className="position-absolute top-50 start-50 translate-middle bg-light opacity-100 card"
-        style={{ maxWidth: "200%", width: "max-content", minWidth: "33%" }}
+        className="modal-container position-absolute top-50 start-50 translate-middle bg-light opacity-100 card"
+        style={{
+          maxWidth: "200%",
+          width: "max-content",
+          minWidth: "33%",
+          minHeight: "280px",
+        }}
       >
-        <h2 className="card-header h-25 h2 p-5 fw-bold text-center">{title}</h2>
-        <p className="card-body p-5 fs-5 text-body">{content}</p>
+        {loading ? (
+          <Loader />
+        ) : (
+          <div>
+            <h2 className="card-header h-25 h2 p-5 fw-bold text-center">
+              {title}
+            </h2>
+            <p className="card-body p-5 fs-5 text-body">{content}</p>
+          </div>
+        )}
         <button
           className="btn btn-secondary d-flex justify-content-center position-absolute top-0 end-0 p-1 m-3"
           type="button"

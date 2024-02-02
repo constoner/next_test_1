@@ -2,7 +2,7 @@ const Logo = () => {
   return (
     <div className="d-flex align-items-center text-dark me-2">
       <svg
-        width="auto"
+        width="158"
         height="32"
         viewBox="0 0 394 80"
         fill="currentColor"
