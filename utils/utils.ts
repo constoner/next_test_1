@@ -45,14 +45,16 @@ const useItem = (itemId: string) => {
 };
 
 const localStorageProvider = () => {
-  const map = new Map(JSON.parse(localStorage.getItem("app-cache") || "[]"));
+  if (typeof localStorage !== "undefined") {
+    const map = new Map(JSON.parse(localStorage.getItem("app-cache") || "[]"));
 
-  window.addEventListener("beforeunload", () => {
-    const appCache = JSON.stringify(Array.from(map.entries()));
-    localStorage.setItem("app-cache", appCache);
-  });
+    window.addEventListener("beforeunload", () => {
+      const appCache = JSON.stringify(Array.from(map.entries()));
+      localStorage.setItem("app-cache", appCache);
+    });
 
-  return map;
+    return map;
+  }
 };
 
 export { useList, useItem, localStorageProvider };
