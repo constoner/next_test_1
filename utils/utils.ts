@@ -1,6 +1,8 @@
+import useSWR from "swr";
+
 import * as DATA_API from "./DATA_API";
 
-const getData = async (APIpath: string) => {
+const getData = (APIpath: string) => {
   return fetch(APIpath, {
     cache: "no-store",
   })
@@ -14,14 +16,28 @@ const getData = async (APIpath: string) => {
     .then((response) => response.json());
 };
 
-const getList = async (listNumber: string) => {
+const useList = (listNumber: string) => {
   const APIpath: string = `${DATA_API.MAIN_PATH}${DATA_API.LIST_PATH}${listNumber}`;
-  return await getData(APIpath);
+
+  const { data, error, isLoading } = useSWR(APIpath, getData);
+
+  return {
+    data,
+    isLoading,
+    error,
+  };
 };
 
-const getItem = async (itemId: string) => {
+const useItem = (itemId: string) => {
   const APIpath: string = `${DATA_API.MAIN_PATH}${DATA_API.ITEM_PATH}${itemId}`;
-  return await getData(APIpath);
+
+  const { data, error, isLoading } = useSWR(APIpath, getData);
+
+  return {
+    data,
+    isLoading,
+    error,
+  };
 };
 
-export { getList, getItem };
+export { useList, useItem };
